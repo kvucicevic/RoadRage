@@ -1,15 +1,13 @@
 package com.example.roadrage.view;
 
+import com.example.roadrage.HelloApplication;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
-import javafx.scene.layout.CornerRadii;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
@@ -30,6 +28,7 @@ public class StartScene extends Scene {
                 Color.LIGHTBLUE, // Start color of gradient
                 new CornerRadii(0), null))); // No corner radius for VBox background
         init();
+        actions();
     }
 
     //todo Method for initializing components
@@ -58,9 +57,13 @@ public class StartScene extends Scene {
         root.getChildren().addAll(welcome, play, help, exit);
     }
 
-    //todo Sluzi za dodavanje akcije dugmicima - controller
+    //todo Adding actions to the buttons - controller
     private void actions(){
-
+        play.setOnAction(event -> {
+            PlayScene playScene = new PlayScene(new GridPane(), 700, 700);
+            HelloApplication.primaryStage.setScene(playScene);
+            HelloApplication.primaryStage.show();
+        });
     }
 
 }
