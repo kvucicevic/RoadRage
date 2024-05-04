@@ -21,46 +21,53 @@ public class StartScene extends Scene {
 
     public StartScene(Parent root, double width, double height) {
         super(root, width, height);
-        this.root = new VBox();
         this.root = (VBox) root;
         this.root.setAlignment(Pos.CENTER); // Align VBox contents to center
-        this.root.setBackground(new Background(new BackgroundFill(
+        this.root.setBackground(new Background
+                (new BackgroundFill(
                 Color.LIGHTBLUE, // Start color of gradient
-                new CornerRadii(0), null))); // No corner radius for VBox background
+                new CornerRadii(8),
+                        null)));
         init();
         actions();
     }
 
     //todo Method for initializing components
-    private void init(){
+    private void init() {
         play = new Button("PLAY");
         help = new Button("HELP");
         exit = new Button("EXIT");
         welcome = new Label("WELCOME to ROADRAGE");
 
+        //todo Design all buttons
+        design();
+
+        root.getChildren().addAll(welcome, play, help, exit);
+
+    }
+    public void design () {
         // Set font and color for the welcome label
-        welcome.setFont(Font.font("Arial", 30));
-        welcome.setTextFill(Color.RED); // Adjust color as needed
+        welcome.setFont(Font.font("Comic Sans", 32));
+        welcome.setTextFill(Color.RED);
 
         // Add padding to the welcome label
-        welcome.setPadding(new Insets(20)); // 10 pixels padding around the label
+        welcome.setPadding(new Insets(20)); // 20 pixels padding around the label
 
         // Add padding between buttons
-        VBox.setMargin(play, new Insets(0, 0, 10, 0)); // 10 pixels bottom margin
-        VBox.setMargin(help, new Insets(0, 0, 10, 0)); // 10 pixels bottom margin
+        VBox.setMargin(play, new Insets(10));
+        VBox.setMargin(help, new Insets(10));
+        VBox.setMargin(exit, new Insets(10));
 
         // Style the buttons
         play.setStyle("-fx-background-color: #FF6D00; -fx-text-fill: white; -fx-font-size: 20px; -fx-padding: 10px 20px;");
         help.setStyle("-fx-background-color: #66BB6A; -fx-text-fill: white; -fx-font-size: 20px; -fx-padding: 10px 20px;");
         exit.setStyle("-fx-background-color: #F44336; -fx-text-fill: white; -fx-font-size: 20px; -fx-padding: 10px 20px;");
-
-        root.getChildren().addAll(welcome, play, help, exit);
     }
 
     //todo Adding actions to the buttons - controller
     private void actions(){
         play.setOnAction(event -> {
-            PlayScene playScene = new PlayScene(new GridPane(), 700, 700);
+            PlayScene playScene = new PlayScene(new GridPane(), 1920, 1080);
             HelloApplication.primaryStage.setScene(playScene);
             HelloApplication.primaryStage.show();
         });
