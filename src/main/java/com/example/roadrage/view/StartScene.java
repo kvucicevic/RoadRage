@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.effect.DropShadow;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
@@ -50,8 +51,19 @@ public class StartScene extends Scene {
 
     public void design(){
 
-        welcome.setFont(Font.font("Comic Sans", 20));
+        Font.loadFont(getClass().getResourceAsStream("C:\\RAF\\OOP\\Dejan\\20.03\\RoadRage\\angrybirds-regular.ttf"), 30);
+        welcome.setFont(Font.font("Angry Birds", 30));
         welcome.setTextFill(Color.MEDIUMVIOLETRED);
+
+        DropShadow dropShadow = new DropShadow();
+        dropShadow.setColor(Color.BLACK);
+        dropShadow.setRadius(2.2);
+        dropShadow.setSpread(1);
+        dropShadow.setOffsetX(-0.5);
+        dropShadow.setOffsetY(-0.5);
+
+
+        welcome.setEffect(dropShadow);
 
         welcome.setPadding(new Insets(15));
 
@@ -65,10 +77,10 @@ public class StartScene extends Scene {
     }
 
     public void actions(){
-        play.setOnAction(event ->{
-            PlayScene playScene = new PlayScene(new GridPane(), 700, 700);
+        play.setOnAction(event -> {
+            PlayScene playScene = new PlayScene(new GridPane(), 1920, 1080);
             HelloApplication.primaryStage.setScene(playScene);
-            HelloApplication.primaryStage.setFullScreen(true);
+            HelloApplication.primaryStage.setMaximized(true);
             HelloApplication.primaryStage.show();
         });
     }

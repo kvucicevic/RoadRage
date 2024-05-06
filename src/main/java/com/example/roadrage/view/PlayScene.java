@@ -33,8 +33,6 @@ public class PlayScene extends Scene {
     }
 
     private void init(){
-
-
         //welcome = new Label("Let`s Play");
         //root.getChildren().addAll(welcome);
         root.add(pawnB, 1, 3);
@@ -72,7 +70,7 @@ public class PlayScene extends Scene {
         pawnB.setOnAction(event -> {
             Pawn pawn = new Pawn();
             root.add(pawn, 3, 3);
-            GridPane.setMargin(pawn, new Insets(0, 0, 0, 25));
+            GridPane.setMargin(pawn, new Insets(0, 0, 0, 24));
         });
     }
 

@@ -6,7 +6,7 @@ public class Pawn extends Polygon {
 
     public Pawn() {
         double height = 30; // Height of the triangle
-        double base = 20;   // Base of the triangle
+        double base = 25;   // Base of the triangle
 
         // Calculate the points of the triangle
         double x1 = 15; // Middle top point
