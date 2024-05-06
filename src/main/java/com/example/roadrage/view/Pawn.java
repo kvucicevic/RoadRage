@@ -12,15 +12,11 @@ public class Pawn extends Polygon {
         double x1 = 15; // Middle top point
         double y1 = 0;
         double x2 = x1 - base / 2;
-        double y2 = height;
         double x3 = x1 + base / 2;
-        double y3 = height;
 
-        this.getPoints().addAll(new Double[]{
-                x1, y1,
-                x2, y2,
-                x3, y3
-        });
+        this.getPoints().addAll(x1, y1,
+                x2, height,
+                x3, height);
     }
 }
 

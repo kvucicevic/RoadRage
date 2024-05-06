@@ -1,0 +1,6 @@
+1. Re-factorization of backend - architecture
+2. Adding Database
+3. Implementing backend methods
+4. Callbacks for pawns
+5. Game logic, movements
+6. Implementing dice

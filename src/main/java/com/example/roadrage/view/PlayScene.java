@@ -16,31 +16,29 @@ import java.util.List;
 public class PlayScene extends Scene {
 
     private GridPane root;
-    //private Label welcome;
     private List<Rectangle> road; //40
-    private Rectangle rect;
+
     private List<Circle> garage; //16
     private Button pawnB;
 
     public PlayScene(Parent root, double width, double height) {
         super(root, width, height);
         this.root = (GridPane) root;
-        this.road = new ArrayList<>();
-        this.pawnB = new Button("Add a Pawn");
         init();
-        drawRoad();
+        drawRoad(11);
         addPawn();
     }
 
     private void init(){
-        //welcome = new Label("Let`s Play");
-        //root.getChildren().addAll(welcome);
+        this.road = new ArrayList<>();
+        this.pawnB = new Button("Add a Pawn");
+
         root.add(pawnB, 1, 3);
         root.setAlignment(Pos.CENTER);
-
     }
 
-    private void drawRoad() {
+    // todo abstract n
+    private void drawRoad(int n) {
         for (int i = 0; i < 11; i++) {
             for (int j = 0; j < 11; j++) {
                 if (i == 0 || j == 0 || i == 10 || j == 10) {

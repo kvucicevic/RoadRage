@@ -31,10 +31,9 @@ public class StartScene extends Scene {
     public StartScene(Parent root, double width, double height){
         super(root, width, height);
         this.root = (VBox) root;
-        this.root.setAlignment(Pos.CENTER);
-        this.root.setBackground(new Background(new BackgroundFill(Color.NAVY, new CornerRadii(10), null)));
 
         init();
+        design();
         actions();
     }
 
@@ -44,15 +43,17 @@ public class StartScene extends Scene {
         exit = new Button("EXIT");
         welcome = new Label("WELCOME to ROADRAGE");
 
-        design();
+        this.root.setAlignment(Pos.CENTER);
+        this.root.setBackground(new Background(new BackgroundFill(Color.NAVY, new CornerRadii(10), null)));
 
         root.getChildren().addAll(welcome, play, help, exit);
     }
 
     public void design(){
 
-        Font.loadFont(getClass().getResourceAsStream("C:\\RAF\\OOP\\Dejan\\20.03\\RoadRage\\angrybirds-regular.ttf"), 30);
-        welcome.setFont(Font.font("Angry Birds", 30));
+        Font myFont = Font.loadFont(getClass().getResourceAsStream("/angrybirds-regular.ttf") , 30);
+        System.out.println(myFont);
+        welcome.setFont(myFont);
         welcome.setTextFill(Color.MEDIUMVIOLETRED);
 
         DropShadow dropShadow = new DropShadow();
@@ -62,9 +63,7 @@ public class StartScene extends Scene {
         dropShadow.setOffsetX(-0.5);
         dropShadow.setOffsetY(-0.5);
 
-
         welcome.setEffect(dropShadow);
-
         welcome.setPadding(new Insets(15));
 
         VBox.setMargin(play, new Insets(10));
