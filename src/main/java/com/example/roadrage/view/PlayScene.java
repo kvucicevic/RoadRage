@@ -64,7 +64,6 @@ public class PlayScene extends Scene {
                     root.add(c, i+3, j+3);
                     GridPane.setMargin(c, new Insets(10));
                 }
-
             }
         }
     }
