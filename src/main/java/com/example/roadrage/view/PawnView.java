@@ -2,9 +2,9 @@ package com.example.roadrage.view;
 
 import javafx.scene.shape.Polygon;
 
-public class Pawn extends Polygon {
+public class PawnView extends Polygon {
 
-    public Pawn() {
+    public PawnView() {
         double height = 30; // Height of the triangle
         double base = 25;   // Base of the triangle
 

@@ -51,7 +51,7 @@ public class StartScene extends Scene {
 
     public void design(){
 
-        Font myFont = Font.loadFont(getClass().getResourceAsStream("/angrybirds-regular.ttf") , 30);
+        Font myFont = Font.loadFont(getClass().getResourceAsStream("/angrybirds-regular.ttf") , 50);
         System.out.println(myFont);
         welcome.setFont(myFont);
         welcome.setTextFill(Color.MEDIUMVIOLETRED);

@@ -39,9 +39,9 @@ public class PlayScene extends Scene {
 
     // todo abstract n
     private void drawRoad(int n) {
-        for (int i = 0; i < 11; i++) {
-            for (int j = 0; j < 11; j++) {
-                if (i == 0 || j == 0 || i == 10 || j == 10) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (i == 0 || j == 0 || i == n-1 || j == n-1) {
                     Rectangle r = new Rectangle(40, 40);
                     r.setStroke(Color.BLACK);
                     r.setFill(Color.RED);
@@ -55,7 +55,7 @@ public class PlayScene extends Scene {
                     // Adding padding to the cell (15px on all sides)
                     GridPane.setMargin(r, new Insets(15));
                 }
-                else if((i == 5) || (j == 5)){
+                else if((i == n/2) || (j == n/2)){
                     Circle c = new Circle(25, Color.NAVY);
                     root.add(c, i+3, j+3);
                     GridPane.setMargin(c, new Insets(10));
@@ -66,7 +66,7 @@ public class PlayScene extends Scene {
 
     private void addPawn(){
         pawnB.setOnAction(event -> {
-            Pawn pawn = new Pawn();
+            PawnView pawn = new PawnView();
             root.add(pawn, 3, 3);
             GridPane.setMargin(pawn, new Insets(0, 0, 0, 24));
         });
