@@ -18,5 +18,9 @@ public class PawnView extends Polygon {
                 x2, height,
                 x3, height);
     }
+
+    public void highlight(){
+
+    }
 }
 
