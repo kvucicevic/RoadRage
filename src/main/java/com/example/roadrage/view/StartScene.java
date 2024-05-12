@@ -44,7 +44,8 @@ public class StartScene extends Scene {
         welcome = new Label("WELCOME to ROADRAGE");
 
         this.root.setAlignment(Pos.CENTER);
-        this.root.setBackground(new Background(new BackgroundFill(Color.NAVY, new CornerRadii(10), null)));
+        this.root.setBackground(new Background(new BackgroundFill(Color.NAVY,
+                new CornerRadii(10), null)));
 
         root.getChildren().addAll(welcome, play, help, exit);
     }
@@ -76,6 +77,12 @@ public class StartScene extends Scene {
     }
 
     public void actions(){
+        help.setOnAction(event -> {
+            TestScene testScene = new TestScene(new HBox(), 1920, 1080);
+            HelloApplication.primaryStage.setScene(testScene);
+            HelloApplication.primaryStage.setMaximized(true);
+            HelloApplication.primaryStage.show();
+        });
         play.setOnAction(event -> {
             PlayScene playScene = new PlayScene(new GridPane(), 1920, 1080);
             HelloApplication.primaryStage.setScene(playScene);
