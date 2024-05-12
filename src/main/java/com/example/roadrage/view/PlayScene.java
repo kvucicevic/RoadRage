@@ -35,6 +35,7 @@ public class PlayScene extends Scene {
 
         root.add(pawnB, 1, 3);
         root.setAlignment(Pos.CENTER);
+        root.setGridLinesVisible(true);
     }
 
     // todo abstract n
@@ -59,6 +60,26 @@ public class PlayScene extends Scene {
                     Circle c = new Circle(25, Color.NAVY);
                     root.add(c, i+3, j+3);
                     GridPane.setMargin(c, new Insets(10));
+                }
+                if(i == 0 && j == 3){
+                    Rectangle r = new Rectangle(120, 70);
+                    r.setFill(Color.VIOLET);
+                    root.add(r, i, j);
+                }
+                if(i == n-1 && j == n-1){
+                    Rectangle r = new Rectangle(120, 70);
+                    r.setFill(Color.GREEN);
+                    root.add(r, i+4, j+3);
+                }
+                if(i == n-1 && j == 1){
+                    Rectangle r = new Rectangle(120, 70);
+                    r.setFill(Color.BLUE);
+                    root.add(r, i+4, j+2);
+                }
+                if(i == 0 && j == n-1){
+                    Rectangle r = new Rectangle(120, 70);
+                    r.setFill(Color.BEIGE);
+                    root.add(r, i, j+3);
                 }
             }
         }
