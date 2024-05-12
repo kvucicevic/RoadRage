@@ -18,6 +18,8 @@ public class Controller {
     }
 
     // Method to handle the click event
+    // todo don't ask ChatGPT to write you code
+    //  it is not going to tell you anything informative idea-wise
     private void handlePawnClick(MouseEvent event) {
         System.out.println("Pawn clicked!");
         // You can add your custom actions here

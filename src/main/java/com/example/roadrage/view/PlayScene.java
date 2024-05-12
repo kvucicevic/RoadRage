@@ -37,12 +37,12 @@ public class PlayScene extends Scene {
         root.setAlignment(Pos.CENTER);
     }
 
-    // todo abstract n
+
     private void drawRoad(int n) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
                 if (i == 0 || j == 0 || i == n-1 || j == n-1) {
-                    Rectangle r = new Rectangle(40, 40);
+                    Rectangle r = new Rectangle(40, 40); // todo new field should be initialized here, when you implement it
                     r.setStroke(Color.BLACK);
                     r.setFill(Color.RED);
                     r.setStrokeWidth(2);

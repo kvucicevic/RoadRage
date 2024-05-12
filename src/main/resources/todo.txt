@@ -4,3 +4,4 @@
 4. Callbacks for pawns
 5. Game logic, movements
 6. Implementing dice
+7. Implement players
