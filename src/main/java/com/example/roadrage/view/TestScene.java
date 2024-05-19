@@ -1,15 +1,18 @@
 package com.example.roadrage.view;
 
-import com.example.roadrage.model.Field;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Circle;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.layout.Region;
+
+import java.util.Objects;
 
 public class TestScene extends Scene {
 
@@ -17,17 +20,15 @@ public class TestScene extends Scene {
     private PawnView pawnView;
     private Rectangle spawn;
 
-    private Field road;
-
     private VBox vbox1;
     private GridPane grid;
+    private FieldView road;
     private VBox vbox2;
-    private StackPane stack;
 
     public TestScene(Parent root, double width, double height) {
         super(root, width, height);
         this.root = (HBox) root;
-        this.road = new Field(grid);
+
         init();
         placing();
         design();
@@ -37,7 +38,15 @@ public class TestScene extends Scene {
         vbox1 = new VBox();
         grid = new GridPane();
         vbox2 = new VBox();
-        stack = new StackPane();
+        road = new FieldView();
+        Image backgroundImage = new Image(Objects.requireNonNull(getClass().getResource("/Screenshot (274).png")).toExternalForm());
+
+        // Create a BackgroundImage object
+        BackgroundImage background = new BackgroundImage(backgroundImage,
+                BackgroundRepeat.NO_REPEAT, BackgroundRepeat.NO_REPEAT, BackgroundPosition.CENTER, BackgroundSize.DEFAULT);
+
+        // Set the background of the GridPane
+        root.setBackground(new Background(background));
     }
 
     /**
@@ -47,39 +56,43 @@ public class TestScene extends Scene {
      * 4.How to make spawn places visible?
      */
     private void placing(){
-        vbox1.getChildren().add(new Rectangle(50, 50));
-        vbox1.getChildren().add(new Circle(50));
-        vbox1.setAlignment(Pos.BASELINE_CENTER);
 
+        //todo VBox1
+        Rectangle bottomRectangle = new Rectangle(200, 200, Color.BISQUE);
+        Rectangle topRectangle = new Rectangle(200, 200, Color.AQUAMARINE);
+        vbox1.setSpacing(50);
+        vbox1.setAlignment(Pos.CENTER);
+
+        Region spacer = new Region(); //todo flexible spacer
+        VBox.setVgrow(spacer, javafx.scene.layout.Priority.ALWAYS);
+        vbox1.getChildren().addAll(topRectangle, spacer, bottomRectangle);
+
+        //todo Grid
 //        grid.getChildren().add(new Circle(100));
-//        grid.getChildren().add();
 //        grid.setAlignment(Pos.CENTER);
 
-        /*
-         * todo Have to figure out how to insert Field/road in this StackPane
-         */
-//        stack.getChildren().add(road);
-
-        vbox2.getChildren().add(new Rectangle(60, 50));
-        vbox2.getChildren().add(new Circle(50));
+        //todo VBox2
+        Rectangle bottom2Rectangle = new Rectangle(200, 200, Color.FIREBRICK);
+        Rectangle top2Rectangle = new Rectangle(200, 200, Color.BLUEVIOLET);
+        vbox2.setSpacing(50);
         vbox2.setAlignment(Pos.CENTER);
 
-        root.getChildren().addAll(vbox1, grid, vbox2);
-        root.setPadding(new Insets(50));
+        Region spacer2 = new Region();
+        VBox.setVgrow(spacer2, javafx.scene.layout.Priority.ALWAYS);
+        vbox2.getChildren().addAll(top2Rectangle, spacer2, bottom2Rectangle);
+
+        root.getChildren().addAll(vbox1, road, vbox2);
+        root.setSpacing(30);
+        root.setPadding(new Insets(20));
         root.setAlignment(Pos.CENTER);
 
     }
 
     private void design(){
-        vbox1.setBackground(new Background(new BackgroundFill(Color.GREY, null, null)));
-        grid.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
-        vbox2.setBackground(new Background(new BackgroundFill(Color.BLUE, null, null)));
+        vbox1.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
+//        grid.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
+        road.setBackground(new Background(new BackgroundFill(Color.GREEN, null, null)));
+        vbox2.setBackground(new Background(new BackgroundFill(Color.BLACK, null, null)));
 
-        vbox1.setPadding(new Insets(50));
-        grid.setPadding(new Insets(50));
-        vbox2.setPadding(new Insets(50));
-//        root.setPadding(new Insets(50));
     }
-
-
 }

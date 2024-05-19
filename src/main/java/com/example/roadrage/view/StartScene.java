@@ -14,12 +14,12 @@ import javafx.scene.text.Font;
 
 public class StartScene extends Scene {
 
-/**
- * 1.root, dugmice i label koji hoces da napravis
- * 2.konstruktor, root, centriranje sadrzaja, background
- * 3.init metoda, gde se batoni inicijalizuju, design metoda,
- * 4.actions metoda
- */
+    /**
+     * 1.root, dugmice i label koji hoces da napravis
+     * 2.konstruktor, root, centriranje sadrzaja, background
+     * 3.init metoda, gde se batoni inicijalizuju, design metoda,
+     * 4.actions metoda
+     */
 
     private VBox root;
     private Button play;
@@ -81,6 +81,7 @@ public class StartScene extends Scene {
             TestScene testScene = new TestScene(new HBox(), 1920, 1080);
             HelloApplication.primaryStage.setScene(testScene);
             HelloApplication.primaryStage.setMaximized(true);
+            HelloApplication.primaryStage.setTitle("Test Test Test");
             HelloApplication.primaryStage.show();
         });
         play.setOnAction(event -> {

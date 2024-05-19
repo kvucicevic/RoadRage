@@ -15,13 +15,12 @@ import javafx.scene.shape.Rectangle;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Field extends Scene {
+public class Field extends GridPane {
 
     private GridPane root;
     private List<Rectangle> road; //40
 
     public Field(Parent root) {
-        super(root);
         this.root = (GridPane) root;
         this.road = new ArrayList<>();
 
